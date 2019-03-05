@@ -1,0 +1,37 @@
+<div class="clear"></div>
+<h1>Crear nuevo usuario</h1>
+
+<form class="form-horizontal main-form">
+  <div *ngIf="!isValid" class="alert alert-danger">
+    <strong>Danger!</strong> {{message}}
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="cedula"><span class="required">*</span> Cedula:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="cedula" name="cedula" [(ngModel)]="user.cedula" placeholder="Ingrese su cedula">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="nombre"><span class="required">*</span> Nombre:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="user.nombre" placeholder="Ingrese su nombre">
+    </div>
+  </div>
+  <div class="form-group">
+      <label class="control-label col-sm-2" for="email"><span class="required">*</span> Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" name="email"[(ngModel)]="user.email" placeholder="Ingrese su email">
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="control-label col-sm-2" for="contrasena"> <span class="required">*</span>Contraseña</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="contrasena" name="contrasena" [(ngModel)]="user.contrasena" placeholder="Ingrese su contraseña">
+      </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" (click)="saveOrUpdate()" class="btn btn-default btn-save">Guardar</button>
+    </div>
+  </div>
+</form>
