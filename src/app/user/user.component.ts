@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
 import { UserModel } from '../model/user.model';
 import { Router } from '@angular/router';
+import swal from 'sweetalert2';
+import { CreateUserComponent } from '../create-user/create-user.component';
 
 @Component({
   selector: 'app-user',
@@ -31,11 +33,26 @@ export class UserComponent implements OnInit {
     this.router.navigate(['/createUserComponent']);
   }
 
-  public delete(user: UserModel): void {
-    if(confirm("Está seguro de borrar el registro?")){
-      this.userService.delete(user);
-    }
 
+  public delete(user: UserModel) {
+    swal({
+      title: '¿Esta seguro?',
+      text: `¿Seguro desea eliminar el usuario ${user.nombre}?`,
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.userService.delete(user);
+           swal(
+             'Usuario Eliminado',
+             'Usuario Eiliminado con exito',
+             'success'
+           );
+      }
+    });
   }
 
 }

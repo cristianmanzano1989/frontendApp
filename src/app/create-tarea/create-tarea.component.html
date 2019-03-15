@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="clear"></div>
+    <h1 >Crear nueva tarea</h1>
+    <form class="form-horizontal main-form">
+      <div *ngIf="!isValid" class="alert alert-danger">
+        <strong>Danger!</strong> {{message}}
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="nombre"><span class="required">*</span> Nombre:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="tarea.nombre" placeholder="Ingrese el nombre del proyecto">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="descripcion"><span class="required">*</span> Descripcion:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="tarea.descripcion" placeholder="Ingrese la descripcion del proyecto">
+        </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-sm-2" for="alias"><span class="required">*</span> Alias:</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="alias" name="alias"[(ngModel)]="tarea.alias" placeholder="Ingrese su alias">
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="estado" class="control-label col-sm-2"><span class="required">*</span> Estado </label>
+        <div class="col-sm-10">
+          <select type="text" class="form-control" [(ngModel)]="tarea.estado " name="estado" placeholder="Escoga el estado del proyecto">
+            <option value="activo">Activo</option>
+            <option value="inactivo">Inactivo</option>
+            <option value="inactivo">Pendiente</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="fecha_inicio"><span class="required">*</span> Fecha inicio:</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio"[(ngModel)]="tarea.fecha_inicio" placeholder="Ingrese la fecha de inicio del proyecto">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="fecha_fin"><span class="required">*</span> Fecha fin:</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="fecha_fin" name="fecha_fin"[(ngModel)]="tarea.fecha_fin" placeholder="Ingrese la fecha de fin del proyecto">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="avance"><span class="required">*</span> Avance:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="avance" name="avance" [(ngModel)]="tarea.avance" placeholder="Ingrese el avance de la tarea">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="tiempo_tarea"><span class="required">*</span> Tiempo:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="tiempo_tarea" name="tiempo_tarea" [(ngModel)]="tarea.tiempo_tarea" placeholder="Ingrese el tiempo estimado para la tarea">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="rol" class="control-label col-sm-2"><span class="required">*</span> Asignar usuario</label>
+        <div class="col-sm-10">
+          <select type="text" class="form-control" [(ngModel)]="tarea.usuario_asignado" name="usuario_asignado">
+            <option *ngFor="let usuario of usuarios" [ngValue]="usuario" >{{usuario.nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="rol" class="control-label col-sm-2"><span class="required">*</span>Proyecto</label>
+        <div class="col-sm-10">
+          <select type="text" class="form-control" [(ngModel)]="tarea.proyecto" name="proyecto">
+            <option *ngFor="let proyecto of proyectos" [ngValue]="proyecto" >{{proyecto.nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" (click)="saveOrUpdateTareas()" class="btn btn-outline-success my-2 my-sm-0 btn-save">Guardar</button>
+        </div>
+      </div>
+    </form>
+</div>

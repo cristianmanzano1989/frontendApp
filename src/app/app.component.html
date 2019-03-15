@@ -1,10 +1,10 @@
 
-<div class="container">
-    <div class="clear"></div>
-    <button type="button" [routerLink]="['/userComponent']" routerLinkActive="router-link-active"  class="btn btn-primary">Usuarios</button>
-    <button type="button" [routerLink]="['/createUserComponent']" class="btn btn-success">Agregar usuario</button>
+    <app-navbar *ngIf="router.url !='/login'"></app-navbar>
+    <!-- <button type="button" [routerLink]="['/userComponent']" routerLinkActive="router-link-active"  class="btn btn-primary">Usuarios</button> -->
+    <!-- <button type="button" [routerLink]="['/createUserComponent']" class="btn btn-success">Agregar usuario</button> -->
     <router-outlet></router-outlet>
-</div>
+    <app-footer *ngIf="router.url !='/login'"></app-footer>
+
 
 
 

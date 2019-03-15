@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { RestResponse } from '../model/RestResponse.model';
 import { UserModel } from '../model/user.model';
+import { Rol } from '../model/Rol';
 
 @Injectable({
   providedIn: 'root'
@@ -37,4 +38,8 @@ export class CreateUserService {
   public saveOrUpdate(user: UserModel): Observable<RestResponse> {
     return this.http.post<RestResponse>('http://localhost:8080/saveOrUpdate', JSON.stringify(user));
   }
+
+  public getRoles(): Observable<Rol[]> {
+    return this.http.get<Rol[]>('http://localhost:8080/roles');
+   }
 }

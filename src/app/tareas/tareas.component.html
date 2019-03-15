@@ -1,0 +1,39 @@
+<div class="container">
+<h1>Tareas</h1>
+<div class="clear"></div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Alias</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Fecha_inicio</th>
+        <th scope="col">Fecha_fin</th>
+        <th scope="col">Avance</th>
+        <th scope="col">Tiempo</th>
+        <th scope="col">Usuario asignado</th>
+        <th scope="col">Proyecto</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tareas">
+          <td>{{item.nombre}}</td>
+          <td>{{item.descripcion}}</td>
+          <td>{{item.alias}}</td>
+          <td>{{item.estado}}</td>
+          <td>{{item.fecha_inicio}}</td>
+          <td>{{item.fecha_fin}}</td>
+          <td>{{item.avance}} </td>
+          <td>{{item.tiempo_tarea}}</td>
+          <td>{{item.usuario_asignado.nombre}}</td>
+          <td>{{item.proyecto.nombre}}</td>
+          <td>
+            <img class="img-fluid editIcon" src="../assets/edit.png" (click)="edit(item)" >
+            <img class="img-fluid editIcon" src="../assets/delete.png" (click)="delete(item)" >
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

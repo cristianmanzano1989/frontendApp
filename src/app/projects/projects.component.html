@@ -1,24 +1,28 @@
 <div class="container">
-    <h1>Usuarios registrados</h1>
+  <h1>Proyectos</h1>
     <div class="clear"></div>
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Cedula</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Email</th>
-            <th scope="col">Contraseña</th>
-            <th scope="col">Rol</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Alias</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Fecha_inicio</th>
+            <th scope="col">Fecha_fin</th>
+            <th scope="col">Responsable</th>
             <th scope="col">Acción</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of users">
-              <td>{{item.cedula}}</td>
+          <tr *ngFor="let item of projects">
               <td>{{item.nombre}}</td>
-              <td>{{item.email}}</td>
-              <td>{{item.contrasena}}</td>
-              <td> {{item.rol.nombre}} </td>
+              <td>{{item.descripcion}}</td>
+              <td>{{item.alias}}</td>
+              <td>{{item.estado}}</td>
+              <td>{{item.fecha_inicio}}</td>
+              <td>{{item.fecha_fin}}</td>
+              <td> {{item.responsable.nombre}} </td>
               <td>
                 <img class="img-fluid editIcon" src="../assets/edit.png" (click)="edit(item)" >
                 <img class="img-fluid editIcon" src="../assets/delete.png" (click)="delete(item)" >
